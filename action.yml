@@ -1,4 +1,6 @@
-name: tg-notify-open
+name: 'Telegram  Notify'
+description: 'Sending a Telegram message'
+author: 'Nikolay'
 branding:
   icon: 'message-circle'
   color: 'green'
