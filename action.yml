@@ -1,4 +1,7 @@
 name: tg-notify-open
+branding:
+  icon: 'message-circle'
+  color: 'green'
 on:
   pull_request:
     types: [opened, reopened]
