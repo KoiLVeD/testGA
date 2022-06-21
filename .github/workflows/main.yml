@@ -1,0 +1,11 @@
+name: tg-notify-open
+on:
+  pull_request:
+    types: [opened, reopened]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: start    
+      run: |
+         curl -s -X POST https://api.telegram.org/bot"${{ secrets.TELEGRAM_TOKEN }}"/sendMessage -d chat_id="${{ secrets.TELEGRAM_TO }}" -d parse_mode="HTML" -d text="Pull Request from <a href='https://github.com/${{ github.repository }}'>${{ github.repository }}</a>%0A<a href='https://github.com/MadrobotsRu/frontend/pull/${{ github.event.pull_request.number }}'>${{ github.event.pull_request.title }}</a>%0Auser: ${{ github.event.pull_request.user.login }}%0Astatus: Open 🟡%0A"
